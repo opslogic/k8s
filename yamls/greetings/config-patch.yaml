@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: greetings-app
+  name: greetings-app
+spec:
+  template:
+    metadata:
+      labels:
+        app: greetings-app
+    spec:
+      containers:
+      - name: greetings
+        envFrom:
+        - configMapRef:
+            name: greetings-app

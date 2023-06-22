@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: batchprocess
+spec:
+  jobTemplate:
+    metadata:
+      name: batchprocess
+    spec:
+      template:
+        metadata:
+        spec:
+          containers:
+          - image: sandeepmaurya/batchprocess
+            name: batchprocess
+            resources: {}
+          restartPolicy: OnFailure
+  schedule: '*/2 * * * *'

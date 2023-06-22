@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: clock
+spec:
+  parallelism: 3
+  template:
+    metadata:
+    spec:
+      containers:
+      - image: sandeepmaurya/clock
+        name: clock
+        resources: {}
+      restartPolicy: OnFailure
